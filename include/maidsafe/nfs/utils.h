@@ -132,6 +132,7 @@ GetSuccessOrMostFrequentResponse(const std::vector<MessageContents>& responses,
     LOG(kVerbose) << "GetSuccessOrMostFrequentResponse this_reply_count : " << this_reply_count;
     if (IsSuccess(*itr)) {
       LOG(kVerbose) << "GetSuccessOrMostFrequentResponse successes : " << successes;
+      most_frequent_itr = itr;
       if (++successes >= successes_required) {
         LOG(kVerbose) << "GetSuccessOrMostFrequentResponse return succeeded";
         return std::make_pair(itr, true);
